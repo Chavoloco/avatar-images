@@ -20,7 +20,7 @@ fs.readFile(testResultsFile, 'utf8', (err, data) => {
   const failedTests = results.failures.length;
   
   const message = {
-    text: `Cypress Test Results:\nPassed: ${passedTests}\nFailed: ${failedTests}`
+    text: `Cypress Test Results:\nPassed: ${passedTests}\nFailed: ${failedTests}\n ${failedTests > 0 ? "failure: " + results.failures.fullTitle : ""}`
   };
 
   axios.post(slackWebhookUrl, message)
