@@ -6,8 +6,9 @@ export default defineConfig({
       framework: "create-react-app",
       bundler: "webpack",
     },
+    specPattern: 'src/com/solvd/pages/**/*.cy.{js,jsx,ts,tsx}',
   },
-  reporter: "mochawesome",
+  reporter: "reporters/custom.js",
   reporterOptions: {
     reportDir: "cypress/result",
     overwrite: false,
