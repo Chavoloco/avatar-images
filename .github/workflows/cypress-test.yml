@@ -45,7 +45,14 @@ jobs:
         name: cypress-results
         path: cypress/results
 
-    - name: Slack Notification
+    - name: Send Slack Notification
+      if: always()
+      run: node send-slack-notification.js
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        TEST_RESULTS_FILE: results/custom-report.json
+  
+    - name: Slack Notification (via Action)
       if: always()
       uses: 8398a7/action-slack@v3
       with:
@@ -53,6 +60,3 @@ jobs:
         fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_MESSAGE: "an event was triggered"
-        SLACK_TITLE: Event Triggered
-        SLACK_USERNAME: Jeremias's Bot
