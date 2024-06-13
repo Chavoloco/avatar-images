@@ -1,0 +1,80 @@
+{
+  "passes": [
+    {
+      "title": "renders",
+      "fullTitle": "<AvatarGrid /> renders",
+      "duration": 43,
+      "state": "passed"
+    },
+    {
+      "title": "has image",
+      "fullTitle": "<AvatarGrid /> has image",
+      "duration": 5053,
+      "state": "passed"
+    },
+    {
+      "title": "has refresh-button",
+      "fullTitle": "<AvatarGrid /> has refresh-button",
+      "duration": 5041,
+      "state": "passed"
+    },
+    {
+      "title": "can add a new tile",
+      "fullTitle": "<AvatarGrid /> can add a new tile",
+      "duration": 7145,
+      "state": "passed"
+    },
+    {
+      "title": "can refresh an image",
+      "fullTitle": "<AvatarGrid /> can refresh an image",
+      "duration": 7168,
+      "state": "passed"
+    }
+  ],
+  "failures": [
+    {
+      "title": "can refresh all tiles",
+      "fullTitle": "<AvatarGrid /> can refresh all tiles",
+      "state": "failed",
+      "error": "Timed out retrying after 4000ms: expected 'https://randomuser.me/api/portraits/men/44.jpg' to not equal 'https://randomuser.me/api/portraits/men/44.jpg'"
+    }
+  ],
+  "tests": [
+    {
+      "title": "renders",
+      "fullTitle": "<AvatarGrid /> renders",
+      "duration": 43,
+      "state": "passed"
+    },
+    {
+      "title": "has image",
+      "fullTitle": "<AvatarGrid /> has image",
+      "duration": 5053,
+      "state": "passed"
+    },
+    {
+      "title": "has refresh-button",
+      "fullTitle": "<AvatarGrid /> has refresh-button",
+      "duration": 5041,
+      "state": "passed"
+    },
+    {
+      "title": "can add a new tile",
+      "fullTitle": "<AvatarGrid /> can add a new tile",
+      "duration": 7145,
+      "state": "passed"
+    },
+    {
+      "title": "can refresh an image",
+      "fullTitle": "<AvatarGrid /> can refresh an image",
+      "duration": 7168,
+      "state": "passed"
+    },
+    {
+      "title": "can refresh all tiles",
+      "fullTitle": "<AvatarGrid /> can refresh all tiles",
+      "duration": 14355,
+      "state": "failed"
+    }
+  ]
+}
