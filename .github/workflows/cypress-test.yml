@@ -1,0 +1,58 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+      - jb-06-avatar-image
+  pull_request:
+    branches:
+      - main
+      - jb-06-avatar-image
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Start the application
+      run: npm start &
+      env:
+        CI: true
+
+    - name: Wait for the application to be ready
+      run: npx wait-on http://localhost:3000
+
+    - name: Run Cypress tests
+      run: npm run cypress:run
+      env:
+        CI: true
+
+    - name: Archive test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-results
+        path: cypress/results
+
+   # - name: Slack Notification
+    #  if: always()
+     # uses: 8398a7/action-slack@v3
+      #with:
+       # status: ${{ job.status }}
+        #fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+      #env:
+       # SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        #SLACK_MESSAGE: "an event was triggered"
+        #SLACK_TITLE: Event Triggered
+        #SLACK_USERNAME: Jeremias's Bot
