@@ -47,7 +47,7 @@ jobs:
 
     - name: Send Slack Notification
       if: always()
-      run: node com/solvd/sendSlackNotification.js
+      run: node src/com/solvd/pages/sendSlackNotification.js
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         TEST_RESULTS_FILE: results/custom-report.json
