@@ -10,7 +10,7 @@ export default defineConfig({
   },
   reporter: "reporters/custom.js",
   reporterOptions: {
-    reportDir: "cypress/result",
+    reportDir: "reporters/results",
     overwrite: false,
     hmtl: false,
     json: true
