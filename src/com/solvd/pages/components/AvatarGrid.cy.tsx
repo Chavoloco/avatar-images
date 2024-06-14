@@ -4,17 +4,13 @@ const { _, $ } = Cypress;
 
 describe('<AvatarGrid />', () => {
   it('renders', () => {
-    // see: https://on.cypress.io/mounting-react
     cy.mount(<AvatarGrid />)
   })
   it('has image', () => {
     cy.mount(<AvatarGrid/>)
     cy.wait(5000)
     cy.get('.avatar-img').then(($img) => {
-      // use the _.each function
       _.each($img.get(), (el, i) => {
-        // use $(...) to wrap the DOM element
-        // into a jQuery object
         expect($(el)).to.match('img')
       })
     })
@@ -72,5 +68,4 @@ describe('<AvatarGrid />', () => {
       cy.wrap($img).invoke('attr', 'src').should('not.equal', initialSrcs[index]);
     });
   })
-  
-})
+})  
